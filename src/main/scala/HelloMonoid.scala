@@ -20,4 +20,17 @@ object HelloMonoid extends App {
 
   Console println hs.foldLeft(HogeMonoid.zero)(_ |+| _)
 
+
+
+  case class Foo(s: String, xs: List[Int])
+
+  implicit object FooMonoid extends Monoid[Foo] {
+    def zero: Foo = Foo("", List.empty)
+    def append(r1: Foo, r2: => Foo): Foo = Foo(s"${r1.s} and ${r2.s}", r1.xs ::: r2.xs)
+  }
+
+  val fs = Foo("apple", List(1, 2)) :: Foo("ornge", List(5, 9)) :: Foo("banana", List(0)) :: Nil
+
+  Console println fs.reduce(_ |+| _)
+
 }
