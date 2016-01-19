@@ -1,6 +1,6 @@
-scalaVersion := "2.11.0"
+scalaVersion := "2.11.7"
 
-val scalazVersion = "7.1.0"
+val scalazVersion = "7.2.0"
 
 libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-core" % scalazVersion,
